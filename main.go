@@ -28,7 +28,7 @@ UTILITIES
 */
 
 func MakeJSON(result telegraph.Result) []byte {
-	b, err := json.MarshalIndent(&result, "", "	")
+	b, err := json.MarshalIndent(&result, "", "  ")
 	if err != nil {
 		panic(err.Error())
 	}

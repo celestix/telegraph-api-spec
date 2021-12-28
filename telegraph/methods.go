@@ -17,6 +17,8 @@ func GetMethods(doc soup.Root) []Method {
 		method.Description = m.FullText()
 		m = m.FindNextSibling()
 		method.Parameters = GetMethodParams(m)
+		m = m.FindNextSibling()
+		method.SampleRequest = m.Find("a").FullText()
 		methods = append(methods, method)
 	}
 	return methods
