@@ -1,0 +1,599 @@
+{
+  "methods": [
+    {
+      "name": "createAccount",
+      "description": "Use this method to create a new Telegraph account. Most users only need one account, but this can be useful for channel administrators who would like to keep individual author names and profile links for each of their channels. On success, returns an Account object with the regular fields and an additional access_token field.",
+      "sample_request": "https://api.telegra.ph/createAccount?short_name=Sandbox\u0026author_name=Anonymous",
+      "parameters": [
+        {
+          "name": "short_name",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": true,
+          "description": "Required. Account name, helps users with several accounts remember which they are currently using. Displayed to the user above the \"Edit/Publish\" button on Telegra.ph, other users don't see this name."
+        },
+        {
+          "name": "author_name",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": false,
+          "description": "Default author name used when creating new articles."
+        },
+        {
+          "name": "author_url",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": false,
+          "description": "Default profile link, opened when users click on the author's name below the title. Can be any link, not necessarily to a Telegram profile or channel."
+        }
+      ]
+    },
+    {
+      "name": "createPage",
+      "description": "Use this method to create a new Telegraph page. On success, returns a Page object.",
+      "sample_request": "https://api.telegra.ph/createPage?access_token=b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb\u0026title=Sample+Page\u0026author_name=Anonymous\u0026content=[{\"tag\":\"p\",\"children\":[\"Hello,+world!\"]}]\u0026return_content=true",
+      "parameters": [
+        {
+          "name": "access_token",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": true,
+          "description": "Required. Access token of the Telegraph account."
+        },
+        {
+          "name": "title",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": true,
+          "description": "Required. Page title."
+        },
+        {
+          "name": "author_name",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": false,
+          "description": "Author name, displayed below the article's title."
+        },
+        {
+          "name": "author_url",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": false,
+          "description": "Profile link, opened when users click on the author's name below the title. Can be any link, not necessarily to a Telegram profile or channel."
+        },
+        {
+          "name": "content",
+          "data_type": {
+            "name": "Node",
+            "is_array": true
+          },
+          "required": true,
+          "description": "Required. Content of the page. "
+        },
+        {
+          "name": "return_content",
+          "data_type": {
+            "name": "Boolean",
+            "is_array": false
+          },
+          "required": false,
+          "description": "If true, a content field will be returned in the Page object (see: Content format)."
+        }
+      ]
+    },
+    {
+      "name": "editAccountInfo",
+      "description": "Use this method to update information about a Telegraph account. Pass only the parameters that you want to edit. On success, returns an Account object with the default fields.",
+      "sample_request": "https://api.telegra.ph/editAccountInfo?access_token=b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb\u0026short_name=Sandbox\u0026author_name=Anonymous",
+      "parameters": [
+        {
+          "name": "access_token",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": true,
+          "description": "Required. Access token of the Telegraph account."
+        },
+        {
+          "name": "short_name",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": false,
+          "description": "New account name."
+        },
+        {
+          "name": "author_name",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": false,
+          "description": "New default author name used when creating new articles."
+        },
+        {
+          "name": "author_url",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": false,
+          "description": "New default profile link, opened when users click on the author's name below the title. Can be any link, not necessarily to a Telegram profile or channel."
+        }
+      ]
+    },
+    {
+      "name": "editPage",
+      "description": "Use this method to edit an existing Telegraph page. On success, returns a Page object.",
+      "sample_request": "https://api.telegra.ph/editPage/Sample-Page-12-15?access_token=b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb\u0026title=Sample+Page\u0026author_name=Anonymous\u0026content=[{\"tag\":\"p\",\"children\":[\"Hello,+world!\"]}]\u0026return_content=true",
+      "parameters": [
+        {
+          "name": "access_token",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": true,
+          "description": "Required. Access token of the Telegraph account."
+        },
+        {
+          "name": "path",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": true,
+          "description": "Required. Path to the page."
+        },
+        {
+          "name": "title",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": true,
+          "description": "Required. Page title."
+        },
+        {
+          "name": "content",
+          "data_type": {
+            "name": "Node",
+            "is_array": true
+          },
+          "required": true,
+          "description": "Required. Content of the page."
+        },
+        {
+          "name": "author_name",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": false,
+          "description": "Author name, displayed below the article's title."
+        },
+        {
+          "name": "author_url",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": false,
+          "description": "Profile link, opened when users click on the author's name below the title. Can be any link, not necessarily to a Telegram profile or channel."
+        },
+        {
+          "name": "return_content",
+          "data_type": {
+            "name": "Boolean",
+            "is_array": false
+          },
+          "required": false,
+          "description": "If true, a content field will be returned in the Page object."
+        }
+      ]
+    },
+    {
+      "name": "getAccountInfo",
+      "description": "Use this method to get information about a Telegraph account. Returns an Account object on success.",
+      "sample_request": "https://api.telegra.ph/getAccountInfo?access_token=b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb\u0026fields=[\"short_name\",\"page_count\"]",
+      "parameters": [
+        {
+          "name": "access_token",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": true,
+          "description": "Required. Access token of the Telegraph account."
+        },
+        {
+          "name": "fields",
+          "data_type": {
+            "name": "String",
+            "is_array": true
+          },
+          "required": false,
+          "description": "List of account fields to return. Available fields: short_name, author_name, author_url, auth_url, page_count."
+        }
+      ]
+    },
+    {
+      "name": "getPage",
+      "description": "Use this method to get a Telegraph page. Returns a Page object on success.",
+      "sample_request": "https://api.telegra.ph/getPage/Sample-Page-12-15?return_content=true",
+      "parameters": [
+        {
+          "name": "path",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": true,
+          "description": "Required. Path to the Telegraph page (in the format Title-12-31, i.e. everything that comes after http://telegra.ph/)."
+        },
+        {
+          "name": "return_content",
+          "data_type": {
+            "name": "Boolean",
+            "is_array": false
+          },
+          "required": false,
+          "description": "If true, content field will be returned in Page object."
+        }
+      ]
+    },
+    {
+      "name": "getPageList",
+      "description": "Use this method to get a list of pages belonging to a Telegraph account. Returns a PageList object, sorted by most recently created pages first.",
+      "sample_request": "https://api.telegra.ph/getPageList?access_token=b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb\u0026limit=3",
+      "parameters": [
+        {
+          "name": "access_token",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": true,
+          "description": "Required. Access token of the Telegraph account."
+        },
+        {
+          "name": "offset",
+          "data_type": {
+            "name": "Integer",
+            "is_array": false
+          },
+          "required": false,
+          "description": "Sequential number of the first page to be returned."
+        },
+        {
+          "name": "limit",
+          "data_type": {
+            "name": "Integer",
+            "is_array": false
+          },
+          "required": false,
+          "description": "Limits the number of pages to be retrieved."
+        }
+      ]
+    },
+    {
+      "name": "getViews",
+      "description": "Use this method to get the number of views for a Telegraph article. Returns a PageViews object on success. By default, the total number of page views will be returned.",
+      "sample_request": "https://api.telegra.ph/getViews/Sample-Page-12-15?year=2016\u0026month=12",
+      "parameters": [
+        {
+          "name": "path",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": true,
+          "description": "Required. Path to the Telegraph page (in the format Title-12-31, where 12 is the month and 31 the day the article was first published)."
+        },
+        {
+          "name": "year",
+          "data_type": {
+            "name": "Integer",
+            "is_array": false
+          },
+          "required": false,
+          "description": "Required if month is passed. If passed, the number of page views for the requested year will be returned."
+        },
+        {
+          "name": "month",
+          "data_type": {
+            "name": "Integer",
+            "is_array": false
+          },
+          "required": false,
+          "description": "Required if day is passed. If passed, the number of page views for the requested month will be returned."
+        },
+        {
+          "name": "day",
+          "data_type": {
+            "name": "Integer",
+            "is_array": false
+          },
+          "required": false,
+          "description": "Required if hour is passed. If passed, the number of page views for the requested day will be returned."
+        },
+        {
+          "name": "hour",
+          "data_type": {
+            "name": "Integer",
+            "is_array": false
+          },
+          "required": false,
+          "description": "If passed, the number of page views for the requested hour will be returned."
+        }
+      ]
+    },
+    {
+      "name": "revokeAccessToken",
+      "description": "Use this method to revoke access_token and generate a new one, for example, if the user would like to reset all connected sessions, or you have reasons to believe the token was compromised. On success, returns an Account object with new access_token and auth_url fields.",
+      "sample_request": "https://api.telegra.ph/revokeAccessToken?access_token=b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb",
+      "parameters": [
+        {
+          "name": "access_token",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "required": true,
+          "description": "Required. Access token of the Telegraph account."
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "Account",
+      "description": "This object represents a Telegraph account. ",
+      "attributes": [
+        {
+          "name": "short_name",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "Account name, helps users with several accounts remember which they are currently using. Displayed to the user above the \"Edit/Publish\" button on Telegra.ph, other users don't see this name."
+        },
+        {
+          "name": "author_name",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "Default author name used when creating new articles."
+        },
+        {
+          "name": "author_url",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "Profile link, opened when users click on the author's name below the title. Can be any link, not necessarily to a Telegram profile or channel."
+        },
+        {
+          "name": "access_token",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "Optional. Only returned by the createAccount and revokeAccessToken method. Access token of the Telegraph account."
+        },
+        {
+          "name": "auth_url",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "optional": true,
+          "description": "Optional. URL to authorize a browser on telegra.ph and connect it to a Telegraph account. This URL is valid for only one use and for 5 minutes only."
+        },
+        {
+          "name": "page_count",
+          "data_type": {
+            "name": "Integer",
+            "is_array": false
+          },
+          "optional": true,
+          "description": "Optional. Number of pages belonging to the Telegraph account."
+        }
+      ]
+    },
+    {
+      "name": "Node",
+      "description": "This abstract object represents a DOM Node. It can be a String which represents a DOM text node or a NodeElement object.",
+      "attributes": []
+    },
+    {
+      "name": "NodeElement",
+      "description": "This object represents a DOM element node.",
+      "attributes": [
+        {
+          "name": "tag",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "Name of the DOM element. Available tags: a, aside, b, blockquote, br, code, em, figcaption, figure, h3, h4, hr, i, iframe, img, li, ol, p, pre, s, strong, u, ul, video."
+        },
+        {
+          "name": "attrs",
+          "data_type": {
+            "name": "Object",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "Optional. Attributes of the DOM element. Key of object represents name of attribute, value represents value of attribute. Available attributes: href, src."
+        },
+        {
+          "name": "children",
+          "data_type": {
+            "name": "Node",
+            "is_array": true
+          },
+          "optional": false,
+          "description": "Optional. List of child nodes for the DOM element."
+        }
+      ]
+    },
+    {
+      "name": "Page",
+      "description": "This object represents a page on Telegraph.",
+      "attributes": [
+        {
+          "name": "path",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "Path to the page."
+        },
+        {
+          "name": "url",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "URL of the page."
+        },
+        {
+          "name": "title",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "Title of the page."
+        },
+        {
+          "name": "description",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "Description of the page."
+        },
+        {
+          "name": "author_name",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "optional": true,
+          "description": "Optional. Name of the author, displayed below the title."
+        },
+        {
+          "name": "author_url",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "optional": true,
+          "description": "Optional. Profile link, opened when users click on the author's name below the title.  Can be any link, not necessarily to a Telegram profile or channel."
+        },
+        {
+          "name": "image_url",
+          "data_type": {
+            "name": "String",
+            "is_array": false
+          },
+          "optional": true,
+          "description": "Optional. Image URL of the page."
+        },
+        {
+          "name": "content",
+          "data_type": {
+            "name": "Node",
+            "is_array": true
+          },
+          "optional": true,
+          "description": "Optional. Content of the page."
+        },
+        {
+          "name": "views",
+          "data_type": {
+            "name": "Integer",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "Number of page views for the page."
+        },
+        {
+          "name": "can_edit",
+          "data_type": {
+            "name": "Boolean",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "Optional. Only returned if access_token passed. True, if the target Telegraph account can edit the page."
+        }
+      ]
+    },
+    {
+      "name": "PageList",
+      "description": "This object represents a list of Telegraph articles belonging to an account. Most recently created articles first.",
+      "attributes": [
+        {
+          "name": "total_count",
+          "data_type": {
+            "name": "Integer",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "Total number of pages belonging to the target Telegraph account."
+        },
+        {
+          "name": "pages",
+          "data_type": {
+            "name": "Page",
+            "is_array": true
+          },
+          "optional": false,
+          "description": "Requested pages of the target Telegraph account."
+        }
+      ]
+    },
+    {
+      "name": "PageViews",
+      "description": "This object represents the number of page views for a Telegraph article.",
+      "attributes": [
+        {
+          "name": "views",
+          "data_type": {
+            "name": "Integer",
+            "is_array": false
+          },
+          "optional": false,
+          "description": "Number of page views for the target page."
+        }
+      ]
+    }
+  ]
+}
