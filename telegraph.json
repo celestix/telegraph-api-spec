@@ -399,7 +399,7 @@
             "name": "String",
             "is_array": false
           },
-          "optional": false,
+          "optional": true,
           "description": "Optional. Only returned by the createAccount and revokeAccessToken method. Access token of the Telegraph account."
         },
         {
@@ -446,7 +446,7 @@
             "name": "Object",
             "is_array": false
           },
-          "optional": false,
+          "optional": true,
           "description": "Optional. Attributes of the DOM element. Key of object represents name of attribute, value represents value of attribute. Available attributes: href, src."
         },
         {
@@ -455,7 +455,7 @@
             "name": "Node",
             "is_array": true
           },
-          "optional": false,
+          "optional": true,
           "description": "Optional. List of child nodes for the DOM element."
         }
       ]
@@ -551,7 +551,7 @@
             "name": "Boolean",
             "is_array": false
           },
-          "optional": false,
+          "optional": true,
           "description": "Optional. Only returned if access_token passed. True, if the target Telegraph account can edit the page."
         }
       ]

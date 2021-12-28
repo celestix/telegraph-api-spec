@@ -3,6 +3,7 @@ package telegraph
 import (
 	"html"
 	"regexp"
+	"strings"
 
 	"github.com/anaskhan96/soup"
 )
@@ -40,7 +41,7 @@ func GetTypeAttr(m soup.Root) []Attrubute {
 func IsTypeOptional(children []soup.Root) bool {
 	for _, child := range children {
 		if child.NodeValue == "em" {
-			if child.FullText() == "Optional" {
+			if strings.Contains(child.FullText(), "Optional") {
 				return true
 			}
 		}
