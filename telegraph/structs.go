@@ -29,6 +29,7 @@ type Attrubute struct {
 
 type Method struct {
 	Name          string      `json:"name"`
+	Returns       string      `json:"returns"`
 	Description   string      `json:"description"`
 	SampleRequest string      `json:"sample_request"`
 	Parameters    []Parameter `json:"parameters"`

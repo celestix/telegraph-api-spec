@@ -15,6 +15,7 @@ func GetMethods(doc soup.Root) []Method {
 		m := doc.Find("h4", "id", methodName)
 		m = m.FindNextSibling()
 		method.Description = m.FullText()
+		method.Returns = m.Find("a").FullText()
 		m = m.FindNextSibling()
 		method.Parameters = GetMethodParams(m)
 		m = m.FindNextSibling()
