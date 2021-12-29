@@ -1,0 +1,35 @@
+on:
+  schedule:
+    - cron:  '0 12 * * *'
+name: Telegraph API Scrapper
+jobs:
+  build:
+    name: Scrape
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+
+    - name: Validate 
+      run: go mod tidy
+    - name: Generate JSON Specs
+      run: go run main.go
+
+    - name: Create PR
+      uses: peter-evans/create-pull-request@v3.5.2
+      with:
+        commit-message: >
+          Regenerate telegraph API JSON specs.
+        title: >
+          Update telegraph API docs based on the latest changes
+        body: >
+          This PR is automated. It's created with the help of Github Actions due to changes in telegraph API
+        branch: workflow
+        reviewers: anonyindian
+        assignees: anonyindian
+        labels: automated
+        delete-branch: true
