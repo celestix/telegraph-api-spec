@@ -40,7 +40,7 @@ jobs:
         body: >
           This PR is automated. It's created with the help of Github Actions due to changes in telegraph API
         branch: workflow
-        reviewers: anonyindian
-        assignees: anonyindian
+        reviewers: celestix
+        assignees: celestix
         labels: automated
         delete-branch: true
