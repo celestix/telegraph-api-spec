@@ -39,7 +39,7 @@
       "name": "createPage",
       "returns": "Page",
       "description": "Use this method to create a new Telegraph page. On success, returns a Page object.",
-      "sample_request": "https://api.telegra.ph/createPage?access_token=b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb\u0026title=Sample+Page\u0026author_name=Anonymous\u0026content=[{\"tag\":\"p\",\"children\":[\"Hello,+world!\"]}]\u0026return_content=true",
+      "sample_request": "https://api.telegra.ph/createPage?access_token=d3b25feccb89e508a9114afb82aa421fe2a9712b963b387cc5ad71e58722\u0026title=Sample+Page\u0026author_name=Anonymous\u0026content=[{\"tag\":\"p\",\"children\":[\"Hello,+world!\"]}]\u0026return_content=true",
       "parameters": [
         {
           "name": "access_token",
@@ -101,7 +101,7 @@
       "name": "editAccountInfo",
       "returns": "Account",
       "description": "Use this method to update information about a Telegraph account. Pass only the parameters that you want to edit. On success, returns an Account object with the default fields.",
-      "sample_request": "https://api.telegra.ph/editAccountInfo?access_token=b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb\u0026short_name=Sandbox\u0026author_name=Anonymous",
+      "sample_request": "https://api.telegra.ph/editAccountInfo?access_token=d3b25feccb89e508a9114afb82aa421fe2a9712b963b387cc5ad71e58722\u0026short_name=Sandbox\u0026author_name=Anonymous",
       "parameters": [
         {
           "name": "access_token",
@@ -145,7 +145,7 @@
       "name": "editPage",
       "returns": "Page",
       "description": "Use this method to edit an existing Telegraph page. On success, returns a Page object.",
-      "sample_request": "https://api.telegra.ph/editPage/Sample-Page-12-15?access_token=b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb\u0026title=Sample+Page\u0026author_name=Anonymous\u0026content=[{\"tag\":\"p\",\"children\":[\"Hello,+world!\"]}]\u0026return_content=true",
+      "sample_request": "https://api.telegra.ph/editPage/Sample-Page-12-15?access_token=d3b25feccb89e508a9114afb82aa421fe2a9712b963b387cc5ad71e58722\u0026title=Sample+Page\u0026author_name=Anonymous\u0026content=[{\"tag\":\"p\",\"children\":[\"Hello,+world!\"]}]\u0026return_content=true",
       "parameters": [
         {
           "name": "access_token",
@@ -216,7 +216,7 @@
       "name": "getAccountInfo",
       "returns": "Account",
       "description": "Use this method to get information about a Telegraph account. Returns an Account object on success.",
-      "sample_request": "https://api.telegra.ph/getAccountInfo?access_token=b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb\u0026fields=[\"short_name\",\"page_count\"]",
+      "sample_request": "https://api.telegra.ph/getAccountInfo?access_token=d3b25feccb89e508a9114afb82aa421fe2a9712b963b387cc5ad71e58722\u0026fields=[\"short_name\",\"page_count\"]",
       "parameters": [
         {
           "name": "access_token",
@@ -268,7 +268,7 @@
       "name": "getPageList",
       "returns": "PageList",
       "description": "Use this method to get a list of pages belonging to a Telegraph account. Returns a PageList object, sorted by most recently created pages first.",
-      "sample_request": "https://api.telegra.ph/getPageList?access_token=b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb\u0026limit=3",
+      "sample_request": "https://api.telegra.ph/getPageList?access_token=d3b25feccb89e508a9114afb82aa421fe2a9712b963b387cc5ad71e58722\u0026limit=3",
       "parameters": [
         {
           "name": "access_token",
@@ -356,7 +356,7 @@
       "name": "revokeAccessToken",
       "returns": "Account",
       "description": "Use this method to revoke access_token and generate a new one, for example, if the user would like to reset all connected sessions, or you have reasons to believe the token was compromised. On success, returns an Account object with new access_token and auth_url fields.",
-      "sample_request": "https://api.telegra.ph/revokeAccessToken?access_token=b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb",
+      "sample_request": "https://api.telegra.ph/revokeAccessToken?access_token=d3b25feccb89e508a9114afb82aa421fe2a9712b963b387cc5ad71e58722",
       "parameters": [
         {
           "name": "access_token",
